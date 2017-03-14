@@ -7,6 +7,19 @@
 	<body>
 		<h1>Create mobile phone</h1>
 		<script>
+		
 		</script>
+		<button onclick='var telefon = { model: "lumia 435",
+						fajnosc: true,
+						wersjaSystemu: 8,
+						numery: ["111-111-111"],
+						producent: {nazwa: "microsoft", lokacja: "USA"},
+						
+						wyswietl: function(){
+							alert(this.model+this.fajnosc+this.numery[0]+this.producent.nazwa)
+						}
+						}
+						
+						telefon.wyswietl()'>guzik</button>
 	</body>
 </html>
