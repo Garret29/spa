@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Create methods</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<h1>Create methods</h1>
-		<script>
-			var myArray = {
-					arr: [3,4,76,1,5,787,33,76,1,99,45,235,53,23],
-					min: function(){
-						var sortedArray = this.arr.sort(sortNumber);
-						
-						return sortedArray[0]
-					},		
-					max: function(){
-					var sortedArray = this.arr.sort(sortNumber);
-						
-						return sortedArray[sortedArray.length-1]
-					},		// look at the min method comment
-					avg: function(){
-					
-					return },		// avarage value
-					lth: function(val){}	// the number of arr values less than 'val'
-			};
-			
-			function sortNumber(a,b) {
-    return a - b;
-}
-			
-			// display results (min,max,avg,lth) in the console
-			// ...
-		</script>
-	</body>
+<head>
+    <title>Create methods</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Create methods</h1>
+<script>
+    var myArray = {
+        arr: [3, 4, 76, 1, 5, 787, 33, 76, 1, 99, 45, 235, 53, 23],
+        min: function () {
+            var sortedArray = this.arr.sort(sortNumber);
+
+            return sortedArray[0]
+        },
+        max: function () {
+            var sortedArray = this.arr.sort(sortNumber);
+
+            return sortedArray[sortedArray.length - 1]
+        },		// look at the min method comment
+        avg: function () {
+            var average = 0;
+
+            for (var i = 0; i < this.arr.length; i++) {
+                average += this.arr[i];
+            }
+
+            average /= this.arr.length;
+
+            return average;
+        },		// avarage value
+        lth: function (val) {
+            var count = 0;
+
+            for (var i = 0; i <= this.arr.length; i++) {
+                if (this.arr[i] < val) {
+                    count++;
+                }
+            }
+
+            return count;
+        }	// the number of arr values less than 'val'
+    };
+
+    function sortNumber(a, b) {
+        return a - b;
+    }
+
+    console.log(myArray.min());
+    console.log(myArray.max());
+    console.log(myArray.avg());
+    console.log(myArray.lth(65));
+
+</script>
+</body>
 </html>

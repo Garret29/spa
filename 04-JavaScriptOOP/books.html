@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Display books list</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<h1>Display books list</h1>
-		<script>
-		</script>
-	</body>
+<head>
+    <title>Display books list</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Display books list</h1>
+<script>
+    FORMAT_ENUM = {
+        PAPERBACK: "paperback",
+        HARDBACK: "hardback",
+        EBOOK: "ebook"
+    }
+
+    var books = [
+        {id: 0, title: "The Return of Duck and Goose", author: "Sir Piggy", format: FORMAT_ENUM.PAPERBACK, price: 19.99},
+        {id: 1, title: "The Adventures of Duck and Goose", author: "D. Cow", format: FORMAT_ENUM.HARDBACK, price: 18.99},
+        {id: 2, title: "My Friend is a Duck", author: "D. Cow", format: FORMAT_ENUM.PAPERBACK, price: 14.99},
+        {id: 3, title: "Duck and Goose", author: "Polly Parrot", format: FORMAT_ENUM.PAPERBACK, price: 5.99},
+        {id: 4, title: "Duck and Goose", author: "Bor Ing", format: FORMAT_ENUM.EBOOK, price: 59.99}
+    ];
+
+    for (i = 0; i < books.length; i += 1) {
+        if (books[i].format === FORMAT_ENUM.PAPERBACK) {
+            window.console.log("Id: " + books[i].id + " Title: " + books[i].title + " Author: " + books[i].author + " Format: " + books[i].format + " Price: " + books[i].price);
+        }
+    }
+
+</script>
+</body>
 </html>

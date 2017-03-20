@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Houses for sale</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<h1>Houses for sale</h1>
-		<script>
-		</script>
-	</body>
+<head>
+    <title>Houses for sale</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Houses for sale</h1>
+<script>
+    function House(numberOfBedrooms, facilities, price, address, phone) {
+        this.bedrooms = numberOfBedrooms;
+        this.facilities = facilities;
+        this.price = price;
+        this.phone = phone;
+        this.address = address;
+        this.changePrice = function (newPrice) {
+            this.price = newPrice;
+        };
+        this.addFacility = function (newFacility) {
+            facilities.push(newFacility);
+        };
+        this.showDescription = function () {
+            console.log("Number of bedrooms: " + this.bedrooms + ", Facilities: " + this.facilities.join(", ") + ", Price: " + this.price + ", Address: " + address.street + ", " + address.city + ", Phone number: " + this.phone);
+        };
+    }
+
+    var houses = [
+        new House(1, [], 10000, {street: "Kazimierza Wielkiego", city: "Kraków"}, "123-456-789"),
+        new House(2, ["Garden", "Balcony"], 30000, {street: "Jasnogórska", city: "Kraków"}, "123-987-111"),
+        new House(2, ["Balcony"], 20000, {street: "Olsza", city: "Tarnów"}, "111-222-333"),
+        new House(1, [], 5000, {street: "Zwycięstwa", city: "Bukowno"}, "444-555-666"),
+        new House(5, ["Yard", "Garden", "Balcony", "Swimming pool"], 1000000, {
+            street: "Radzikowskiego",
+            city: "Kraków"
+        }, "444-444-444")
+    ];
+
+    houses.forEach(function (p1) {
+        p1.showDescription()
+    });
+    houses[3].addFacility("Garden");
+    houses[0].addFacility("Balcony");
+    houses[2].addFacility("Garden");
+    houses[2].changePrice(25000);
+    houses[0].changePrice(11000);
+    console.log("*******************************************")
+    houses.forEach(function (p1) {
+        p1.showDescription()
+    });
+
+</script>
+</body>
 </html>
