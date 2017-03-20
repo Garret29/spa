@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Try to guess</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<h1>Try to guess</h1>
+<head>
+    <title>Try to guess</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Try to guess</h1>
 
-		<script>
-			// read user's number (popup window)
-			
-			// create a random number
-			
-			// compare the numbers
-			
-			// show results (popup window)
-			
-		</script>
-	</body>
+<script>
+    var number = Math.round((Math.random()) * 10) % 5 + 1;
+    var isGuessed = false;
+
+    while (!isGuessed) {
+        var userNumber = prompt("podaj liczbe");
+
+        if (number == userNumber) {
+            isGuessed = true;
+            alert("brawo")
+        } else if (number > userNumber) {
+            alert("wieksza")
+        } else if (number < userNumber) {
+            alert("mniejsza")
+        }
+    }
+
+
+</script>
+</body>
 </html>

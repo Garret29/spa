@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Array checker</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<h1>Array checker</h1>
-		<p>Display results on the console</p>
+<head>
+    <title>Array checker</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Array checker</h1>
+<p>Display results on the console</p>
 
-		<script>
-			var tab = [null, null, null, null, null];
-			var i;
+<script>
+    var tab = [null, null, null, null, null];
+    var i;
 
-			// assing random integers to array elements
-			for (i = 0; i < tab.length; i++) {
-				// ...
-			}
 
-			// show array elements
-			console.log('Array elements:');
-			// ...
-			
-			// check whether the array is ordered
-			// ...
-			
-			// display message: Array is ordered / unordered
-			// ...
-		</script>
-	</body>
+    for (i = 0; i < tab.length; i++) {
+        tab[i] = Math.random();
+    }
+
+    // show array elements
+    console.log('Array elements:');
+    for (i = 0; i < tab.length; i++) {
+        console.log(tab[i]);
+    }
+
+    // check whether the array is ordered
+    // ...
+
+    var ordered = true;
+
+    for ( i = 0; i < tab.length; i++) {
+        for (var j = i; j < tab.length; j++) {
+            if (tab[i] > tab[j]) {
+                ordered = false;
+                break;
+            }
+        }
+
+        if (!ordered) {
+            break;
+        }
+    }
+
+    console.log(ordered)
+</script>
+</body>
 </html>
