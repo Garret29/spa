@@ -14,16 +14,16 @@
 						weight: null,
 						height: null,
 						enterData: function(){
-							this.weight=prompt("podaj wage")
-							this.height=prompt("podaj wzrost w cm")
+							this.weight=prompt("podaj wage");
+							this.height=prompt("podaj wzrost w cm");
 						},
 						calculate: function(){
 							return this.weight / (this.height * this.height)
 						},
 						display: function(){
-							alert(this.calculate())
+							alert(this.calculate());
 						}
-				}
+				};
 			
 				BMI.enterData();
 				BMI.display();
