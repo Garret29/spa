@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <script src="jquery-3.1.1.min.js"></script>
 </head>
-<body>
+<body id="page">
 <h1>Another Brick in the Wall</h1>
 <h3>Pink Floyd</h3>
 <p id="para">We don't need no education<br>
@@ -21,17 +21,41 @@
     and psychedelic music.</p>
 
 <script>
+    var picDisplayed = false;
+    var textAdded = false;
+
     $("h1").click(function () {
-        $(this).append(" PART 2")
-    })
+        if (!textAdded) {
+            $(this).append(" PART 2");
+            textAdded=true;
+        }
+    });
 
     $("h3").click(function () {
-        $("#para2").visible(true);
-    })
+        $("#para2").css("visibility", "visible");
+    });
 
     $("#para").click(function () {
-        //$(this).italics(;
-    })
+        $(this).css("font-style", "italic");
+    });
+
+    $("#page").dblclick(function () {
+        $(this).css("background-color", "yellow");
+    });
+
+    jQuery(document).on("copy", function () {
+        alert("***copyright message***");
+    });
+
+    $("#para2").click(function () {
+        if (!picDisplayed) {
+            var img = document.createElement("img");
+            img.setAttribute("src", "https://upload.wikimedia.org/wikipedia/en/d/d6/Pink_Floyd_-_all_members.jpg");
+
+            $("body").append(img);
+            picDisplayed=true;
+        }
+    });
 </script>
 </body>
 </html>

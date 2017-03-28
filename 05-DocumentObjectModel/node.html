@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Create DOM elements</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<script>
-			// a JavaScript code here ...
-			
-		</script>
-	</body>
+<head>
+    <title>Create DOM elements</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<script>
+    var table = document.createElement("table");
+
+    var trI = document.createElement("tr"), trII = document.createElement("tr"), trIII = document.createElement("tr");
+
+
+
+    trI.append("<th>Firstname</th><th>Lastname</th><th>Age</th>");
+    trII.append("<td>Jill</td><td>Smith</td><td>50</td>");
+    trIII.append("<td>Eve</td><td>Jackson</td><td>94</td>");
+
+    table.append(trI, trII, trIII);
+
+    $("body").append(table);
+</script>
+</body>
 </html>
