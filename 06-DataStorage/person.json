@@ -1,0 +1,37 @@
+{
+  "person": {
+    "name": "Szymon",
+    "surname": "Piotrowski",
+    "age": 24,
+    "gender": "male",
+    "email": "xxxxxxxxx@gmail.com",
+    "phone": {
+      "landline": null,
+      "mobile": "111-222-333"
+    },
+    "address": {
+      "street": "xxxxxxxxxxx",
+      "homeNumber": "1",
+      "postalCode": "11-111",
+      "city": "Kraków"
+    },
+    "interests": [],
+    "family": {
+      "spouse": {
+        "name": null,
+        "surname": null
+      },
+      "children": [
+        {
+          "name": null,
+          "surname": null,
+          "gender": null,
+          "age": null,
+          "childInterest": [
+            null
+          ]
+        }
+      ]
+    }
+  }
+}

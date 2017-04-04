@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Username</legend>
+            <label for="login">
+                Login: 
+                <input type="text" id="login">
+            </label>
+            <label for="password">
+                Password: 
+                <input type="password" id="password">
+            </label>
+
+            <button id="loginButton">Log in</button>
+        </fieldset>
+    </form>
+
+    <script>
+        let loginButton = document.querySelector("#loginButton");
+
+        let username = document.querySelector("#login");
+        let password = document.querySelector("#password");
+
+
+        loginButton.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            let localUsername = localStorage.getItem("username");
+            let localPassword = localStorage.getItem("password");
+            console.log("localUsername", localUsername);
+            console.log("localPassword", localPassword);
+            console.log("username", username.value);
+            console.log("passwd", password.value);
+
+            let isUsernameAndPasswordInStorage = localUsername === null || localPassword === null;
+            let isUsernameAndPasswordEqualsInStorage = localUsername === username.value && localPassword === password.value;
+
+            if (isUsernameAndPasswordInStorage) {
+                localStorage.setItem("username", username.value);
+                localStorage.setItem("password", password.value);
+            } else if (isUsernameAndPasswordEqualsInStorage) {
+                alert("User logged in succesfully");
+            }
+        });
+    </script>
+</body>
+</html>
