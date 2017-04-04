@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My files</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<script>
+    function getRate(str) {
+        $.getJSON("http://api.nbp.pl/api/exchangerates/rates/a/" + str + "/?format=json", function (json) {
+            $("p").text(json.rates[0].mid);
+        })
+    }
+</script>
+<body>
+<input type="button" value="EURO" onclick="getRate('EUR')">
+<input type="button" value="USD" ONCLICK="getRate('USD')">
+<input type="button" value="GBP" onclick="getRate('GBP')">
+<input type="button" value="CHF" ONCLICK="getRate('CHF')">
+<p></p>
+</body>

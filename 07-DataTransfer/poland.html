@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Poland</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<h1>Official name</h1>
-		<p></p>
-		
-		<h1>Capital city</h1>
-		<p></p>
+<head>
+    <title>Poland</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<h1>Official name</h1>
+<p id="official"></p>
 
-		<h1>Countries bordering</h1>
-		<p></p>
+<h1>Capital city</h1>
+<p id="capital"></p>
 
-		<script>
-			// a JavaScript code here ...
-			
-		</script>
-	</body>
+<h1>Countries bordering</h1>
+<p id="bordering"></p>
+
+<script>
+    // a JavaScript code here ...
+
+    $.getJSON("poland.json", function (json) {
+        $("#capital").append(json.capital);
+        $("#official").append(json.name.native.pol.official);
+
+        json.borders.forEach(function (p1) {
+            $("#bordering").append(p1+"<br>")
+        })
+    })
+
+</script>
+</body>
 </html>

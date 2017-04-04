@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>My favourite film</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<h1>My favourite film</h1>
-		<p></p>
-		
-		<script>
-			// a JavaScript code here ...
-			
-		</script>
-	</body>
+<head>
+    <title>My favourite film</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<h1>My favourite film</h1>
+<p id="movie"></p>
+
+<script>
+    $("#movie").load("myfilm.txt");
+
+</script>
+</body>
 </html>
