@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Parliament</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<script>
+    var page = "https://api-v3.mojepanstwo.pl/dane/poslowie.json?conditions[poslowie.kadencja]=8";
+
+    for (var i = 1; i <= 10; i++) {
+        $.getJSON(page, function (json) {
+            json.Dataobject.forEach(function (p1) {
+                $("#para1").append(p1.id+" "+p1.slug + "<br>");
+            });
+        });
+        page = "https://api-v3.mojepanstwo.pl/dane/poslowie.json?conditions%5Bposlowie.kadencja%5D=8&_type=objects&page=" + i;
+    }
+</script>
+<body>
+<p id="para1">
+
+</p>
+
+</body>
+</html>

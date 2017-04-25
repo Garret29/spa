@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send data to a server</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.1.1.min.js"></script>
+    <style>
+        #productInfo {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Displaying information about a single product available in the online shop</h1>
+<label>
+    Nr produktu:
+    <input type="text"/>
+</label>
+<input type="button" value="Prześlij"/>
+<div id='productInfo'></div>
+
+<script>
+    var textBlock = document.querySelector('label > input');
+    var div = document.querySelector('#productInfo');
+
+    document.querySelector('input[type=button]').addEventListener('click', function() {
+        var id = parseInt(textBlock.value);
+        if (id > 0 && id < 6) {
+            var response = $.get("products.php", {n: id}, function(data) {
+                div.innerText = ('[' + data.id + '] ' + data.name + ' - ' + data.price + ' zł' + (data.instock ? '' : ' (Produkt niedostępny)'));
+            });
+        } else div.innerText = "Nie ma produktu o takim id.";
+    });
+</script>
+</body>
+</html>

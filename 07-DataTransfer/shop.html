@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="jquery-3.1.1.min.js"></script>
+    <style>
+        .btn-width-160 {
+            width: 160px;
+        }
+        .col-centered {
+            float: none;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Shop</h1>
+
+    <div class="row">
+        <div class="col-md-8 col-centered text-center" id="productInfo"></div>
+    </div>
+
+    <div class="row">
+        <div class="text-center">
+            <input class="btn btn-info btn-width-160" type="button" value="< Previous">
+            <input class="btn btn-info btn-width-160" type="button" value="Next >">
+        </div>
+    </div>
+</div>
+
+<script>
+    var div = document.querySelector('#productInfo');
+    var btns = document.querySelectorAll('input');
+    var index = 0;
+    showProductDetails();
+    btns[0].disabled = true;
+    btns[0].addEventListener('click', function() {
+        index--;
+        if (index >= 0) {
+            showProductDetails();
+            if (index == 0) btns[0].disabled = true;
+        }
+        if (index < 4) btns[1].disabled = false;
+    });
+    btns[1].addEventListener('click', function() {
+        index++;
+        if (index < 5) {
+            showProductDetails();
+            if (index == 4) btns[1].disabled = true;
+        }
+        if (index > 0) btns[0].disabled = false;
+    });
+
+    function showProductDetails() {
+        var response = $.get("products.json", function(data) {
+            if (index >= 0 && index < 5) {
+                var product = data[index];
+                div.innerHTML = (
+                    '<h3>' + product.name + (product.instock ? '' : ' <span class="label label-danger">outstock</span>') + '</h3>' +
+                    '<p>' + product.price + ' $</p>'
+                );
+            } else alert("Nie ma produktu o takim id.");
+        });
+    }
+</script>
+</body>
+</html>
